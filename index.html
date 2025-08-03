@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meu Site da Bíblia</title>
+  <link rel="stylesheet" href="../css/index.css" />
+
+  <style>
+    /* Sugestão rápida para o seletor aparecer melhor */
+    #seletor-biblia {
+      margin-top: 10px;
+    }
+    #texto-biblico p.versiculo {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Sentinela</h1>
+  <p>“Sendo assim, eu me colocarei, como sentinela, sobre minha torre de vigia; tomarei posição sobre a muralha; aguardarei para ver o que Yahweh, o SENHOR, me dirá e que resposta receberei aos meus questionamentos!” – Habacuque 2:1</p>
+</header>
+
+
+
+<nav>
+  <a href="index.html">Início</a>
+  <a href="#" id="link-biblia">Bíblia</a>
+  <a href="comentarios.html">Comentários</a>
+  <a href="#">Contato</a>
+</nav>
+
+
+
+<div id="seletor-biblia" style="display:none;">
+  <label for="livro-biblia">Selecione o livro da Bíblia:</label>
+  <select id="livro-biblia" name="livro-biblia">
+    <option value="">-- Escolha um livro --</option>
+    <option value="genesis">Gênesis</option>
+    <option value="exodo">Êxodo</option>
+    <option value="levitico">Levítico</option>
+    <option value="numeros">Números</option>
+    <option value="deuteronomio">Deuteronômio</option>
+    <option value="josue">Josué</option>
+    <option value="juizes">Juízes</option>
+    <option value="rute">Rute</option>
+    <option value="1_samuel">1 Samuel</option>
+    <option value="2_samuel">2 Samuel</option>
+    <option value="1_reis">1 Reis</option>
+    <option value="2_reis">2 Reis</option>
+    <option value="1_cronicas">1 Crônicas</option>
+    <option value="2_cronicas">2 Crônicas</option>
+    <option value="esdras">Esdras</option>
+    <option value="neemias">Neemias</option>
+    <option value="ester">Ester</option>
+    <option value="job">Jó</option>
+    <option value="salmos">Salmos</option>
+    <option value="provérbios">Provérbios</option>
+    <option value="eclesiastes">Eclesiastes</option>
+    <option value="cantares">Cantares de Salomão</option>
+    <option value="isaías">Isaías</option>
+    <option value="jeremias">Jeremias</option>
+    <option value="lamentacoes">Lamentações</option>
+    <option value="ezequiel">Ezequiel</option>
+    <option value="daniel">Daniel</option>
+    <option value="oseias">Oseias</option>
+    <option value="joel">Joel</option>
+    <option value="amos">Amós</option>
+    <option value="obadias">Obadias</option>
+    <option value="jonas">Jonas</option>
+    <option value="miqueias">Miquéias</option>
+    <option value="naum">Naum</option>
+    <option value="habacuque">Habacuque</option>
+    <option value="sofonias">Sofonias</option>
+    <option value="ageu">Ageu</option>
+    <option value="zacarias">Zacarias</option>
+    <option value="malaquias">Malaquias</option>
+
+    <!-- Novo Testamento -->
+    <option value="mateus">Mateus</option>
+    <option value="marcos">Marcos</option>
+    <option value="lucas">Lucas</option>
+    <option value="joao">João</option>
+    <option value="atos">Atos</option>
+    <option value="romanos">Romanos</option>
+    <option value="1_corintios">1 Coríntios</option>
+    <option value="2_corintios">2 Coríntios</option>
+    <option value="gálatas">Gálatas</option>
+    <option value="efesios">Efésios</option>
+    <option value="filipenses">Filipenses</option>
+    <option value="colossenses">Colossenses</option>
+    <option value="1_tessalonicenses">1 Tessalonicenses</option>
+    <option value="2_tessalonicenses">2 Tessalonicenses</option>
+    <option value="1_timoteo">1 Timóteo</option>
+    <option value="2_timoteo">2 Timóteo</option>
+    <option value="tito">Tito</option>
+    <option value="filemom">Filemom</option>
+    <option value="hebreus">Hebreus</option>
+    <option value="tiago">Tiago</option>
+    <option value="1_pedro">1 Pedro</option>
+    <option value="2_pedro">2 Pedro</option>
+    <option value="1_joao">1 João</option>
+    <option value="2_joao">2 João</option>
+    <option value="3_joao">3 João</option>
+    <option value="judas">Judas</option>
+    <option value="apocalipse">Apocalipse</option>
+  </select>
+
+  <br><br>
+
+  <label for="capitulo-biblia">Selecione o capítulo:</label>
+  <select id="capitulo-biblia" name="capitulo-biblia" style="display: none;">
+    <!-- Capítulos serão adicionados via JavaScript -->
+  </select>
+
+  <div id="texto-biblico" style="margin-top: 20px;"></div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const linkBiblia = document.getElementById('link-biblia');
+    const seletorBiblia = document.getElementById('seletor-biblia');
+    const livroSelect = document.getElementById('livro-biblia');
+    const capituloSelect = document.getElementById('capitulo-biblia');
+    const textoBiblico = document.getElementById('texto-biblico');
+
+    // Mostrar seletor automaticamente se URL tiver hash #biblia
+    if (window.location.hash === '#biblia') {
+      seletorBiblia.style.display = 'block';
+    }
+
+    // Mostrar seletor ao clicar no link Bíblia
+    linkBiblia.addEventListener('click', (e) => {
+      e.preventDefault();
+      seletorBiblia.style.display = 'block';
+    });
+
+    // Objeto com quantidade de capítulos por livro
+    const capitulosPorLivro = {
+      genesis: 50,
+      exodo: 40,
+      levitico: 27,
+      numeros: 36,
+      deuteronomio: 34,
+      josue: 24,
+      juizes: 21,
+      rute: 4,
+      "1_samuel": 31,
+      "2_samuel": 24,
+      "1_reis": 22,
+      "2_reis": 25,
+      "1_cronicas": 29,
+      "2_cronicas": 36,
+      esdras: 10,
+      neemias: 13,
+      ester: 10,
+      job: 42,
+      salmos: 150,
+      "provérbios": 31,
+      eclesiastes: 12,
+      cantares: 8,
+      isaías: 66,
+      jeremias: 52,
+      lamentacoes: 5,
+      ezequiel: 48,
+      daniel: 12,
+      oseias: 14,
+      joel: 3,
+      amos: 9,
+      obadias: 1,
+      jonas: 4,
+      miqueias: 7,
+      naum: 3,
+      habacuque: 3,
+      sofonias: 3,
+      ageu: 2,
+      zacarias: 14,
+      malaquias: 4,
+      mateus: 28,
+      marcos: 16,
+      lucas: 24,
+      joao: 21,
+      atos: 28,
+      romanos: 16,
+      "1_corintios": 16,
+      "2_corintios": 13,
+      galatas: 6,
+      efesios: 6,
+      filipenses: 4,
+      colossenses: 4,
+      "1_tessalonicenses": 5,
+      "2_tessalonicenses": 3,
+      "1_timoteo": 6,
+      "2_timoteo": 4,
+      tito: 3,
+      filemom: 1,
+      hebreus: 13,
+      tiago: 5,
+      "1_pedro": 5,
+      "2_pedro": 3,
+      "1_joao": 5,
+      "2_joao": 1,
+      "3_joao": 1,
+      judas: 1,
+      apocalipse: 22,
+    };
+
+    // Atualiza lista de capítulos quando mudar o livro
+    livroSelect.addEventListener('change', () => {
+      const livro = livroSelect.value;
+      textoBiblico.innerHTML = '';
+      capituloSelect.innerHTML = '<option value="">-- Escolha um capítulo --</option>';
+
+      if (!livro) {
+        capituloSelect.style.display = 'none';
+        return;
+      }
+
+      const totalCapitulos = capitulosPorLivro[livro] || 50;
+      for (let i = 1; i <= totalCapitulos; i++) {
+        const option = document.createElement('option');
+        option.value = i;
+        option.textContent = `Capítulo ${i}`;
+        capituloSelect.appendChild(option);
+      }
+      capituloSelect.style.display = 'inline-block';
+    });
+
+    // Busca texto bíblico via API quando selecionar capítulo
+    capituloSelect.addEventListener('change', () => {
+      const livro = livroSelect.value;
+      const capitulo = capituloSelect.value;
+
+      if (!livro || !capitulo) return;
+
+      const url = `https://bible-api.com/${livro}%20${capitulo}?translation=almeida`;
+
+      fetch(url)
+        .then(res => res.json())
+        .then(data => {
+          if (data.verses) {
+            let html = `<h2>${data.reference}</h2>`;
+            data.verses.forEach(verso => {
+              html += `<p class="versiculo"><strong>${verso.verse}</strong>. ${verso.text}</p>`;
+            });
+            textoBiblico.innerHTML = html;
+          } else {
+            textoBiblico.innerHTML = '<p>Texto não encontrado.</p>';
+          }
+        })
+        .catch(() => {
+          textoBiblico.innerHTML = '<p>Erro ao buscar texto bíblico.</p>';
+        });
+    });
+  });
+</script>
+
+</body>
+</html>

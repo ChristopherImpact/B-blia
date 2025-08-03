@@ -1,0 +1,129 @@
+/* === BASE DO SITE === */
+body {
+  font-family: Georgia, serif;
+  margin: 0;
+  padding: 0;
+  /* Fundo com overlay escuro transparente sobre a imagem */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/biblia123.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #f5f5f5; /* texto claro por causa do fundo escuro */
+}
+
+/* Cabeçalho */
+header {
+  background-color: rgba(74, 124, 89, 0.9); /* verde escuro com transparência */
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+/* Navegação */
+nav {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #4a7c59; /* verde */
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #2e5d3f; /* verde mais escuro no hover */
+  text-decoration: underline;
+}
+
+/* Seção principal */
+section {
+  padding: 30px;
+  max-width: 850px;
+  margin: 60px auto;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+  color: #333; /* texto escuro dentro do conteúdo */
+}
+
+/* Seletor da Bíblia */
+#seletor-biblia {
+  text-align: center;
+  margin: 20px auto 0;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 2px solid #007acc;
+  border-radius: 8px;
+  width: max-content;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #007acc;
+}
+
+#seletor-biblia label {
+  font-weight: 600;
+  margin-right: 10px;
+  font-size: 1rem;
+}
+
+#seletor-biblia select {
+  padding: 8px 12px;
+  font-size: 1rem;
+  border: 1.5px solid #007acc;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+#seletor-biblia select:hover,
+#seletor-biblia select:focus {
+  border-color: #004a99;
+  background-color: #e6f0ff;
+}
+
+/* Texto bíblico */
+#texto-biblico {
+  text-align: left;
+  padding: 20px;
+  max-width: 850px;
+  margin: 20px auto 0;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  color: #444;
+}
+
+.versiculo {
+  margin: 10px 0;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Rodapé */
+footer {
+  text-align: center;
+  color: #ccc;
+  padding: 20px;
+  font-size: 14px;
+  background-color: rgba(0, 0, 0, 0.6);
+  margin-top: 60px;
+}
